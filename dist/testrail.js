@@ -71,7 +71,7 @@ var TestRail = /** @class */ (function () {
     };
     TestRail.prototype.runReport = function () {
         axios({
-            method: 'post',
+            method: 'get',
             url: this.base + "/run_report/" + this.options.reportTemplateId,
             headers: { 'Content-Type': 'application/json' },
             auth: {
