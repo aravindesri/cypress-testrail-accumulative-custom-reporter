@@ -44,6 +44,18 @@ export class TestRail {
     }).catch(error => console.error(error));
   }
 
+  public closeRun() {
+    axios({
+      method: 'post',
+      url: `${this.base}/close_run/${this.runId}`,
+      headers: { 'Content-Type': 'application/json' },
+      auth: {
+        username: this.options.username,
+        password: this.options.password,
+      },
+    }).catch(error => console.error(error));
+  }
+
   public publishResults(results: TestRailResult[]) {
     axios({
       method: 'post',
@@ -66,5 +78,17 @@ export class TestRail {
         );
       })
       .catch(error => console.error(error));
+  }
+
+  public runReport() {
+    axios({
+      method: 'post',
+      url: `${this.base}/run_report/${this.options.reportTemplateId}`,
+      headers: { 'Content-Type': 'application/json' },
+      auth: {
+        username: this.options.username,
+        password: this.options.password,
+      },
+    }).catch(error => console.error(error));
   }
 }

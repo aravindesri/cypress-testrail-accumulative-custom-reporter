@@ -19,6 +19,7 @@ export class CypressTestRailReporter extends reporters.Spec {
     this.validate(reporterOptions, 'password');
     this.validate(reporterOptions, 'projectId');
     this.validate(reporterOptions, 'suiteId');
+    this.validate(reporterOptions, 'reportTemplateId');
 
     runner.on('start', () => {
       const executionDateTime = moment().format('MMM Do YYYY, HH:mm (Z)');
@@ -68,6 +69,8 @@ export class CypressTestRailReporter extends reporters.Spec {
       }
 
       this.testRail.publishResults(this.results);
+      this.testRail.closeRun();
+      this.testRail.runReport();
     });
   }
 

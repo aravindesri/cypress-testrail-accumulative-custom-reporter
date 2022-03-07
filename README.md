@@ -25,6 +25,7 @@ Add reporter to your `cypress.json`:
   "password": "password",
   "projectId": 1,
   "suiteId": 1,
+  "reportTemplateId": 1
 }
 ```
 
@@ -51,6 +52,8 @@ it("Can authenticate a valid userC123", ...
 **projectId**: _number_ project with which the tests are associated.
 
 **suiteId**: _number_ suite with which the tests are associated.
+
+**reportTemplateId**: _number_ report template to run reports on.
 
 **runName**: _string_ (optional) name of the Testrail run.
 
