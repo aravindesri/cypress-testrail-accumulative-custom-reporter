@@ -21,7 +21,7 @@ var TestRail = /** @class */ (function () {
                 suite_id: this.options.suiteId,
                 name: name,
                 description: description,
-                include_all: true,
+                include_all: false,
             }),
         })
             .then(function (response) {
@@ -68,17 +68,6 @@ var TestRail = /** @class */ (function () {
             console.log('\n', " - Results are published to " + chalk.magenta("https://" + _this.options.domain + "/index.php?/runs/view/" + _this.runId), '\n');
         })
             .catch(function (error) { return console.error(error); });
-    };
-    TestRail.prototype.runReport = function () {
-        axios({
-            method: 'post',
-            url: this.base + "/run_report/" + this.options.reportTemplateId,
-            headers: { 'Content-Type': 'application/json' },
-            auth: {
-                username: this.options.username,
-                password: this.options.password,
-            },
-        }).catch(function (error) { return console.error(error); });
     };
     return TestRail;
 }());

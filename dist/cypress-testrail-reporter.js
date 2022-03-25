@@ -71,8 +71,6 @@ var CypressTestRailReporter = /** @class */ (function (_super) {
                 return;
             }
             _this.testRail.publishResults(_this.results);
-            _this.testRail.closeRun();
-            _this.testRail.runReport();
         });
         return _this;
     }
