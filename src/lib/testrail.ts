@@ -10,7 +10,7 @@ export class TestRail {
     this.base = `https://${options.domain}/index.php?/api/v2`;
   }
 
-  public createRun(name: string, description: string) {
+  public createRun(name: string, description: string, case_ids: number[]) {
     axios({
       method: 'post',
       url: `${this.base}/add_run/${this.options.projectId}`,
@@ -24,6 +24,7 @@ export class TestRail {
         name,
         description,
         include_all: false,
+        case_ids
       }),
     })
       .then(response => {
