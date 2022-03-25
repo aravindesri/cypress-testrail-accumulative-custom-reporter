@@ -7,7 +7,7 @@ var TestRail = /** @class */ (function () {
         this.options = options;
         this.base = "https://" + options.domain + "/index.php?/api/v2";
     }
-    TestRail.prototype.createRun = function (name, description) {
+    TestRail.prototype.createRun = function (name, description, case_ids) {
         var _this = this;
         axios({
             method: 'post',
@@ -22,6 +22,7 @@ var TestRail = /** @class */ (function () {
                 name: name,
                 description: description,
                 include_all: false,
+                case_ids: case_ids
             }),
         })
             .then(function (response) {

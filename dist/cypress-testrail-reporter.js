@@ -28,11 +28,12 @@ var CypressTestRailReporter = /** @class */ (function (_super) {
         _this.validate(reporterOptions, 'password');
         _this.validate(reporterOptions, 'projectId');
         _this.validate(reporterOptions, 'suiteId');
-        runner.on('start', function () {
+        runner.on('start', function (test) {
             var executionDateTime = moment().format('MMM Do YYYY, HH:mm (Z)');
             var name = (reporterOptions.runName || 'Automated test run') + " " + executionDateTime;
             var description = 'For the Cypress run visit https://dashboard.cypress.io/#/projects/runs';
-            _this.testRail.createRun(name, description);
+            var caseIds = shared_1.titleToCaseIds(test.title);
+            _this.testRail.createRun(name, description, caseIds);
         });
         runner.on('pass', function (test) {
             var caseIds = shared_1.titleToCaseIds(test.title);
