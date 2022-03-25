@@ -69,20 +69,6 @@ var TestRail = /** @class */ (function () {
         })
             .catch(function (error) { return console.error(error); });
     };
-<<<<<<< HEAD
-=======
-    TestRail.prototype.runReport = function () {
-        axios({
-            method: 'get',
-            url: this.base + "/run_report/" + this.options.reportTemplateId,
-            headers: { 'Content-Type': 'application/json' },
-            auth: {
-                username: this.options.username,
-                password: this.options.password,
-            },
-        }).catch(function (error) { return console.error(error); });
-    };
->>>>>>> b13341601b28310186369a7fcb94142873f0b694
     return TestRail;
 }());
 exports.TestRail = TestRail;
