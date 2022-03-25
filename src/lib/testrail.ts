@@ -23,7 +23,7 @@ export class TestRail {
         suite_id: this.options.suiteId,
         name,
         description,
-        include_all: true,
+        include_all: false,
       }),
     })
       .then(response => {
@@ -78,17 +78,5 @@ export class TestRail {
         );
       })
       .catch(error => console.error(error));
-  }
-
-  public runReport() {
-    axios({
-      method: 'post',
-      url: `${this.base}/run_report/${this.options.reportTemplateId}`,
-      headers: { 'Content-Type': 'application/json' },
-      auth: {
-        username: this.options.username,
-        password: this.options.password,
-      },
-    }).catch(error => console.error(error));
   }
 }
